@@ -6,27 +6,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
- @Test
-    void containNumbersvalidatePasswordTrue(){
+   @Test
+    void containNumbersTrue(){
      String password = "passwort1";
-
-     assertTrue(Main.validatePassword(password));
- }
-
- @Test
-    void containNumbersvalidatePasswordFalse(){
-     String password = "passwort";
-     assertFalse(Main.validatePassword(password));
- }
-    @Test
-    void checkPasswordLength8(
-    ){
-        Assertions.assertTrue(Main.checkPasswordLength());
+     assertTrue(Main.containNumbers(password));
     }
 
     @Test
-    void checkPasswordLengthNot8(
-    ){
-        Assertions.assertFalse(Main.checkPasswordLength());
+    void containNumbersFalse(){
+     String password = "passwort";
+     assertFalse(Main.containNumbers(password));
+    }
+    @Test
+    void checkPasswordLength8(){
+        assertTrue(Main.checkPasswordLength("passwort"));
+    }
+
+    @Test
+    void checkPasswordLengthNot8(){
+        assertFalse(Main.checkPasswordLength("passt"));
     }
 }
