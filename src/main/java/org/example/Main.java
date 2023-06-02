@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Has numbers: " + containNumbers(password));
 
         //System.out.println("Login erfolgreich!");
-
+        System.out.println(containNumbers(password));
     }
 
     public static void setPassword(){
@@ -21,7 +21,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         password = sc.next();
         sc.close();*/
-        password = "5A8nG2f9v";
+        password = "AGfv";
     }
     public static void showPassword(){
         System.out.println("Password: " + password);
