@@ -11,13 +11,22 @@ class MainTest {
      String password = "passwort1";
 
      assertTrue(Main.validatePassword(password));
-
  }
 
  @Test
     void containNumbersvalidatePasswordFalse(){
      String password = "passwort";
-
      assertFalse(Main.validatePassword(password));
  }
+    @Test
+    void checkPasswordLength8(
+    ){
+        Assertions.assertTrue(Main.checkPasswordLength());
+    }
+
+    @Test
+    void checkPasswordLengthNot8(
+    ){
+        Assertions.assertFalse(Main.checkPasswordLength());
+    }
 }
