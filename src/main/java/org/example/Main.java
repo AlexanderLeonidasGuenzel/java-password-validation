@@ -32,6 +32,14 @@ public class Main {
     }
     public static boolean containNumbers(String pw){
 
-        return pw.matches("[0-9]]");
+        boolean containsNumbers = false;
+        for (int i = 0; i < pw.length(); i++) {
+            if (Character.isDigit(pw.charAt(i))) {
+                containsNumbers = true;
+                break;
+            }
+        }
+
+        return containsNumbers;
     }
 }
