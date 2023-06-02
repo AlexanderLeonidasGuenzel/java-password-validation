@@ -3,38 +3,57 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-
     public static String password;
 
     public static void main(String[] args) {
-        setPassword("agfv5");
-        checkAll(password);
-        setPassword("Agfv5");
-        checkAll(password);
 
-        //System.out.println("Login erfolgreich!");
+        boolean passwordCheck = false;
 
+        do{
+            setPassword();
+            passwordCheck = checkAll(password);
+            if(passwordCheck == false){
+                System.out.println("Fail! Bad password. Try again!");
+            }
+        }while(passwordCheck == false);
+        System.out.println("Success! Password set.");
     }
 
-    public static void setPassword(String pw){
-
-        /*System.out.println("Set password: ");
+    public static void setPassword(){
         Scanner sc = new Scanner(System.in);
-        password = sc.next();
-        sc.close();*/
-        password = pw;
         System.out.println("--------------------------------------");
-        showPassword();
-
-
+        System.out.println("A good password contains at least one of [a-z][A-Z][0-9]. Length of 8 characters.");
+        System.out.print("Input password: ");
+        password = sc.next();
     }
 
-    public static void checkAll(String password){
-        System.out.println("Has length 8: "+ checkPasswordLength(password));
-        System.out.println("Has numbers: " + containNumbers(password));
+    public static void setPasswordFix(String pw){
+        System.out.println("--------------------------------------");
+        System.out.println("A good password contains at least one of [a-z][A-Z][0-9]. Length of 8 characters.");
+        System.out.print("Input password: ");
+        password = pw;
+    }
+
+    public static void printCheckAll(String password){
+        System.out.println("Has length 8: "  + checkPasswordLength(password));
+        System.out.println("Has numbers: "   + containNumbers(password));
         System.out.println("Has Uppercase: " + containUpperCase(password));
         System.out.println("Has Lowercase: " + containLowerCase(password));
     }
+
+    public static boolean checkAll(String password){
+
+        boolean a,b,c,d;
+
+        a = checkPasswordLength(password);
+        b = containNumbers(password);
+        c = containUpperCase(password);
+        d = containLowerCase(password);
+
+        return a && b && c && d;
+    }
+
+
 
     public static void showPassword(){
         System.out.println("Password: " + password);
