@@ -1,6 +1,6 @@
 package org.example;
 
-import com.sun.tools.javac.Main;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,13 +10,13 @@ class MainTest {
    @Test
     void containNumbersTrue(){
      String password = "passwort1";
-     assertTrue(Main);
+     assertTrue(Main.containNumbers(password));
     }
 
     @Test
     void containNumbersFalse(){
      String password = "passwort";
-     assertFalse(Main);
+     assertFalse(Main.containNumbers(password));
     }
     @Test
     void checkPasswordLength8(){
