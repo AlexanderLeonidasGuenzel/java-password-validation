@@ -5,24 +5,37 @@ import java.util.Scanner;
 public class Main {
 
     public static String password;
+
     public static void main(String[] args) {
-        setPassword();
-        showPassword();
-        System.out.println("Has length 8: "+ checkPasswordLength(password));
-        System.out.println("Has numbers: " + containNumbers(password));
+        setPassword("agfv5");
+        checkAll(password);
+        setPassword("Agfv5");
+        checkAll(password);
 
         //System.out.println("Login erfolgreich!");
-        System.out.println(containNumbers(password));
+
     }
 
-    public static void setPassword(){
+    public static void setPassword(String pw){
 
         /*System.out.println("Set password: ");
         Scanner sc = new Scanner(System.in);
         password = sc.next();
         sc.close();*/
-        password = "AGfv";
+        password = pw;
+        System.out.println("--------------------------------------");
+        showPassword();
+
+
     }
+
+    public static void checkAll(String password){
+        System.out.println("Has length 8: "+ checkPasswordLength(password));
+        System.out.println("Has numbers: " + containNumbers(password));
+        System.out.println("Has Uppercase: " + containUpperCase(password));
+        System.out.println("Has Lowercase: " + containLowerCase(password));
+    }
+
     public static void showPassword(){
         System.out.println("Password: " + password);
     }
@@ -39,7 +52,30 @@ public class Main {
                 break;
             }
         }
-
         return containsNumbers;
+    }
+
+    public static boolean containUpperCase(String pw){
+
+        boolean containsUppercase = false;
+        for (int i = 0; i < pw.length(); i++) {
+            if (Character.isUpperCase(pw.charAt(i))) {
+                containsUppercase = true;
+                break;
+            }
+        }
+        return containsUppercase;
+    }
+
+    public static boolean containLowerCase(String pw){
+
+        boolean containsLowercase = false;
+        for (int i = 0; i < pw.length(); i++) {
+            if (Character.isLowerCase(pw.charAt(i))) {
+                containsLowercase = true;
+                break;
+            }
+        }
+        return containsLowercase;
     }
 }
